@@ -1,0 +1,25 @@
+{
+  "name": "desafios-clube-da-progamacao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FernandoSantos-0/desafios-clube-da-progamacao.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/FernandoSantos-0/desafios-clube-da-progamacao/issues"
+  },
+  "homepage": "https://github.com/FernandoSantos-0/desafios-clube-da-progamacao#readme",
+  "dependencies": {
+    "@clack/prompts": "^1.7.0",
+    "chalk": "^5.6.2"
+  }
+}
