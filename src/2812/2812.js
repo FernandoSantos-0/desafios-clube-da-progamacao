@@ -1,37 +1,34 @@
 var input = require('fs').readFileSync('/dev/stdin', 'utf8');
-var lines = input.trim().split(/\s+/);
+var lines = input.trim().split(/\s+/).map(Number);
 
-if (lines.length > 0 && lines[0] !== '') {
-    let ptr = 0;
-    let N = parseInt(lines[ptr++], 10);
+let pos = 0;
+let N = lines[pos++];
+let resultado = [];
 
-    for (let i = 0; i < N; i++) {
-        if (ptr >= lines.length) break;
-        let M = parseInt(lines[ptr++], 10);
-        let list = [];
-        
-        for (let j = 0; j < M; j++) {
-            list.push(parseInt(lines[ptr++], 10));
+for (let i = 0; i < N; i++) {
+    let M = lines[pos++];
+    let numeros = lines.slice(pos, pos + M);
+    pos += M;
+
+    let impares = numeros.filter(n => n % 2 !== 0);
+
+    impares.sort((a, b) => a - b);
+
+    let ordenados = [];
+    let menor = 0;
+    let maior = impares.length - 1;
+
+    while (menor <= maior) {
+        ordenados.push(impares[maior]);
+        maior--;
+
+        if (menor <= maior) {
+            ordenados.push(impares[menor]);
+            menor++;
         }
-
-        let odds = list.filter(x => x % 2 !== 0);
-
-        odds.sort((a, b) => a - b);
-
-        let result = [];
-        let left = 0;
-        let right = odds.length - 1;
-
-        while (left <= right) {
-            if (right >= left) {
-                result.push(odds[right]);
-                right--;
-            }
-            if (left <= right) {
-                result.push(odds[left]);
-                left++;
-            }
-        }
-        console.log(result.join(' '));
     }
+
+    resultado.push(ordenados.join(' '));
 }
+
+console.log(resultado.join('\n'));
